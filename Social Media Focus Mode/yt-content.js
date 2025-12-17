@@ -23,24 +23,24 @@ function applyFocusMode(){
         document.querySelectorAll(sel).forEach(el => el.classList.add('focus-mode-hide'));
     });
     
-    if (location.pathname.startsWith("/shorts") && location.pathname !== "/") {
+    if (location.pathname.startsWith("/shorts")) {
         history.replaceState({}, "", "/");
+        location.reload();
     }
 }
 
-chrome.storage.local.get({ enabled: true }, data => {
-    enabled = data.enabled;
+chrome.storage.local.get({ ytEnabled: true }, data => {
+    enabled = data.ytEnabled;
     applyFocusMode();
 });
 
 chrome.storage.onChanged.addListener(changes => {
-    if(changes.enabled){
-        enabled = changes.enabled.newValue;
+    if(changes.ytEnabled){
+        enabled = changes.ytEnabled.newValue;
         applyFocusMode();
     }
 });
 
-let lastUrl = location.href;
 let applyTimeout;
 
 function debouncedApply(){
@@ -49,10 +49,6 @@ function debouncedApply(){
 }
 
 const observer = new MutationObserver(() => {
-    const url = location.href;
-    if (url !== lastUrl) {
-        lastUrl = url;
-    }
     debouncedApply();
 });
 const mainContainer = document.querySelector('ytd-app') || document.body;
