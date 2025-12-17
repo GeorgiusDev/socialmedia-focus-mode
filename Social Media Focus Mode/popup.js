@@ -1,9 +1,18 @@
-const toggle = document.getElementById("toggle");
+const ytToggle = document.getElementById("ytToggle");
+const igToggle = document.getElementById("igToggle");
 
-chrome.storage.local.get("enabled", data => {
-    toggle.checked = data.enabled !== false;
+chrome.storage.local.get(
+    { ytEnabled: true, igEnabled: true },
+    data => {
+        ytToggle.checked = data.ytEnabled;
+        igToggle.checked = data.igEnabled;
+    }
+);
+
+ytToggle.addEventListener("change", () => {
+    chrome.storage.local.set({ ytEnabled: ytToggle.checked });
 });
 
-toggle.addEventListener("change", () => {
-    chrome.storage.local.set({ enabled: toggle.checked });
+igToggle.addEventListener("change", () => {
+    chrome.storage.local.set({ igEnabled: igToggle.checked });
 });
