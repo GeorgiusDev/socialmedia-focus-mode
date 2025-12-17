@@ -1,13 +1,15 @@
-# Social Media Focus Mode 1.0
-A lightweight opensource browser extension for Chromium browsers that removes distractions while surfing through YouTube, built with JavaScript.
+# Social Media Focus Mode 1.1
+A lightweight opensource browser extension for Chromium browsers that removes distractions while surfing through YouTube, and Instagram; built with JavaScript.
 
-Social Media Focus Mode hides recommendations, shorts, trending, and other attention-grabbing elements.
+Social Media Focus Mode hides recommendations, shorts, reels, explore, trending, and other attention-grabbing elements.
 
 # Features
 - Hide YouTube home recommendations
-- Hide Shorts, Trending, Explore, and related feeds
-- Redirect /shorts back to the homepage
+- Hide Shorts, Reels, Trending, Explore, and related feeds
+- Allows you to search content, watch videos and stories without worrying about unnecessary recommendations grabbing your attention.
+- Redirect /shorts /reels /explore and /p back to the homepage
 - Toggle on/off instantly via extension popup
+- Choose which website will be in "focus mode"
 - Fast & lightweight
 - Fully local
 
@@ -25,7 +27,12 @@ Social Media Focus Mode hides recommendations, shorts, trending, and other atten
 - When ON: 
   - Distractions will be hidden
 - When OFF:
-  - YouTube returns to normal
+  - The website returns to normal
+
+# What's new in 1.1?
+- Added an option for Instagram Focus Mode
+- Optimized reel redirection -> Instead of just "hiding" the reel, if you accidentally open it, it will redirect you to home page and *refresh* the page
+- Optimized the code to allow for future focus mode websites
 
 # License & Credits
 This project is licensed under the MIT License You are free to use, modify, and share this project, but you must include credit by keeping the copyright notice in LICENSE.txt file
